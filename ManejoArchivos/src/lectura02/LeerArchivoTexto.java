@@ -22,6 +22,7 @@ public class LeerArchivoTexto {
             while (entrada.hasNext()) {
                 String linea = entrada.nextLine();
                 List<String> lista = Arrays.asList(linea.split("\\|"));
+                //se utiliza doble pipe cuando el caracter de separacion sea diferente de , y diferentede de ;.
                 ArrayList<String> linea_partes = new ArrayList<>(lista);
                 
                 
