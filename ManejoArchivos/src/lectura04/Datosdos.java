@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class Datosdos {
 
     public static void leerPromediosDatosDos() {
-        
+
         double promedio = 0;
         double suma = 0;
         double contador = 0;
@@ -35,6 +35,7 @@ public class Datosdos {
                 System.out.println(linea_partes.get(3));
 
                 String valor = linea_partes.get(3);
+
                 double variable = Double.parseDouble(valor);
                 suma = suma + variable;
                 contador = contador + 1;

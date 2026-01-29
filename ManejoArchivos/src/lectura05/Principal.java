@@ -9,5 +9,10 @@ package lectura05;
  * @author USER_ASUS
  */
 public class Principal {
+    public static void main( String args[] ){
+        
+        Estadistica.obtenerPromedioEmpleados();
     
+    
+    }
 }
