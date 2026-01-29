@@ -16,58 +16,51 @@ public class Principal {
 
         Scanner entrada = new Scanner(System.in);
 
-        String cedula = "";
         String cadenaFinal = "";
         String placa = "";
         boolean bandera = true;
 
         while (bandera) {
 
-            for (int i = 0; i < 3; i++) {
+            System.out.println("Ingrese su cedula");
+            String cedula = entrada.nextLine();
+            System.out.println("Ingrese su nombre");
+            String nombre = entrada.nextLine();
+            System.out.println("Ingrese su placa del carro");
+            placa = entrada.nextLine();
+            System.out.println("Ingrese su marca del carro");
+            String marca = entrada.nextLine();
+            cadenaFinal = String.format("%s%s %s%s %s\n", cadenaFinal,
+                    nombre, cedula,
+                    marca, placa);
 
-                System.out.println("Ingrese su cedula");
-                cedula = entrada.nextLine();
-                System.out.println("Ingrese su nombre");
-                String nombre = entrada.nextLine();
-                System.out.println("Ingrese su placa del carro");
-                placa = entrada.nextLine();
-                System.out.println("Ingrese su marca del carro");
-                String marca = entrada.nextLine();
-                entrada.nextLine();
+            String inicialPlaca = placa.substring(0, 1).toUpperCase();;
 
-                cadenaFinal = String.format("%s%s %s %s\n", cadenaFinal,
-                        cedula,
-                        nombre, placa, marca);
+            if (inicialPlaca.equals("L")) {
 
-                String inicialPlaca = placa.substring(0, 1);
-
-                if (inicialPlaca.equals("L")) {
-
-                    CrearArchivoTexto.Loja(cadenaFinal);
+                CrearArchivoTexto.loja(cadenaFinal);
+            } else {
+                if (inicialPlaca.equals("P")) {
+                    CrearArchivoTexto.pichincha(cadenaFinal);
                 } else {
-                    if (inicialPlaca.equals("P")) {
-                        CrearArchivoTexto.Pichincha(cadenaFinal);
+                    if (inicialPlaca.equals("G")) {
+                        CrearArchivoTexto.guayas(cadenaFinal);
                     } else {
-                        if (inicialPlaca.equals("G")) {
-                            CrearArchivoTexto.Guayas(cadenaFinal);
-                        } else {
 
-                            CrearArchivoTexto.otros(cadenaFinal);
-                        }
-                        cadenaFinal = "";
-                        String opcion;
-
-                        System.out.println("Si deseas agregar mas pon (s/n)");
-                        opcion = entrada.next();
-                        if (opcion.equals("n")) {
-
-                            break;
-                        }
-
+                        CrearArchivoTexto.varios(cadenaFinal);
                     }
+
                 }
             }
-            escritura04.CrearArchivoTexto.agregarRegistros(cadenaFinal, placa);
+            cadenaFinal = "";
+            String opcion;
+
+            System.out.println("Si deseas agregar mas pon (s/n)");
+            opcion = entrada.nextLine();
+            if (opcion.equals("n")) {
+                bandera = false;
+
+            }
         }
     }
 }
