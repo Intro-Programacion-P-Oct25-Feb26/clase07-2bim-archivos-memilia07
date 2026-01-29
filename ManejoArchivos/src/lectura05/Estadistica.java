@@ -35,7 +35,6 @@ public class Estadistica {
                     if (bandera) {
 
                         bandera = false;
-                        throw new Exception("Primera Línea");
 
                     }
 

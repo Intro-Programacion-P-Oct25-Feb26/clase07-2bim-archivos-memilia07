@@ -29,7 +29,7 @@ public class Principal {
                 cedula = entrada.nextLine();
                 System.out.println("Ingrese su nombre");
                 String nombre = entrada.nextLine();
-                System.out.println("Ingrese su correo");
+                System.out.println("Ingrese su placa del carro");
                 placa = entrada.nextLine();
                 System.out.println("Ingrese su marca del carro");
                 String marca = entrada.nextLine();
@@ -41,10 +41,33 @@ public class Principal {
 
                 String inicialPlaca = placa.substring(0, 1);
 
-                if (placa.equalsIgnoreCase("L")) {
+                if (inicialPlaca.equals("L")) {
 
+                    CrearArchivoTexto.Loja(cadenaFinal);
+                } else {
+                    if (inicialPlaca.equals("P")) {
+                        CrearArchivoTexto.Pichincha(cadenaFinal);
+                    } else {
+                        if (inicialPlaca.equals("G")) {
+                            CrearArchivoTexto.Guayas(cadenaFinal);
+                        } else {
+
+                            CrearArchivoTexto.otros(cadenaFinal);
+                        }
+                        cadenaFinal = "";
+                        String opcion;
+
+                        System.out.println("Si deseas agregar mas pon (s/n)");
+                        opcion = entrada.next();
+                        if (opcion.equals("n")) {
+
+                            break;
+                        }
+
+                    }
                 }
             }
+            escritura04.CrearArchivoTexto.agregarRegistros(cadenaFinal, placa);
         }
     }
 }

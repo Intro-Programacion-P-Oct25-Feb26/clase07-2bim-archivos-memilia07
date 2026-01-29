@@ -4,6 +4,8 @@
  */
 package escritura05;
 
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.util.Formatter;
 
 /**
@@ -12,12 +14,43 @@ import java.util.Formatter;
  */
 public class CrearArchivoTexto {
 
-    public static void agregarRegistros(String valor, String nombreArchivo) {
-
-        String ruta = String.format("data/%s.txt", nombreArchivo);
+    public static void Loja(String nombreArchivo) {
         try {
-            Formatter salida = new Formatter(ruta);
-            salida.format("%s", valor);
+            FileOutputStream fos = new FileOutputStream("data/salidaDatosPersonales002.txt", true);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            Formatter salida = new Formatter(osw);
+
+            salida.format("%s", nombreArchivo);
+            salida.close();
+
+        } catch (Exception e) {
+            System.err.println("Error al crear el archivo.");
+            System.exit(1);
+        }
+    }
+
+    public static void Pichincha(String nombreArchivo) {
+        try {
+            FileOutputStream fos = new FileOutputStream("data/salidaDatosPersonales002.txt", true);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            Formatter salida = new Formatter(osw);
+
+            salida.format("%s", nombreArchivo);
+            salida.close();
+
+        } catch (Exception e) {
+            System.err.println("Error al crear el archivo.");
+            System.exit(1);
+        }
+    }
+
+    public static void Guayas(String nombreArchivo) {
+        try {
+            FileOutputStream fos = new FileOutputStream("data/salidaDatosPersonales002.txt", true);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            Formatter salida = new Formatter(osw);
+
+            salida.format("%s", nombreArchivo);
             salida.close();
 
         } catch (Exception e) {
@@ -25,7 +58,20 @@ public class CrearArchivoTexto {
             System.exit(1);
 
         }
-
     }
 
+    public static void otros(String valor) {
+        try {
+            FileOutputStream fos = new FileOutputStream("data/salidaDatosPersonales002.txt", true);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            Formatter salida = new Formatter(osw);
+
+            salida.format("%s", valor);
+            salida.close();
+
+        } catch (Exception e) {
+            System.err.println("Error al crear el archivo.");
+            System.exit(1);
+        }
+    }
 }
