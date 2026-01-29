@@ -21,18 +21,21 @@ public class Estadistica {
 
         double promedio = 0;
         double suma = 0;
-        double contador = 0;
+        int contador = 0;
         boolean bandera = true;
 
         try {
-            Scanner entrada = new Scanner(new File("data/datosDos.txt"));
+            Scanner entrada = new Scanner(new File("data/sucursales.txt"));
 
             while (entrada.hasNext()) {
+
                 try {
                     String linea = entrada.nextLine();
+
                     if (bandera) {
+
                         bandera = false;
-                        throw new Exception("Primera Linea");
+                        throw new Exception("Primera Línea");
 
                     }
 
@@ -43,25 +46,25 @@ public class Estadistica {
                     String valor = linea_partes.get(2);
 
                     double empleados = Double.parseDouble(valor);
-                    
+
                     suma = suma + empleados;
-                    
+
                     contador = contador + 1;
 
                 } catch (Exception e) {
 
                 }
-
             }
 
             promedio = suma / contador;
 
             entrada.close();
 
-        } catch (FileNotFoundException | NumberFormatException e) {
+        } catch (FileNotFoundException e) {
+
             System.err.println("Error al leer del archivo.");
+            System.exit(1);
         }
         System.out.printf("Promedio: %.2f\n", promedio);
-
     }
 }
